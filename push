@@ -2,5 +2,5 @@
 git add .
 git commit -m "fixed it"
 git push
-sleep 3000
+sleep 3
 clear
