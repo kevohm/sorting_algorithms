@@ -1,29 +1,45 @@
 #include "sort.h"
+
 /**
- * bubble_sort - sorting algorithm
- * @array: pointer to array
- * @size: size of array
- * Return: Nothing
+ * bubble_sort - sorting a random array of integers with the bubble method
+ * @array: a pointer to the first piece of data of the array
+ * @size: the size of the array
+ * Return: No Value
  */
 void bubble_sort(int *array, size_t size)
 {
-	size_t i = 0, j = 0;
-	int temp = 0, check = 0;
+	int i, flag = 1, new_size = size;
 
-	for (; i < size; i++)
+	while (flag)
 	{
-		for (j = 0; j < size - i; j++)
+		flag = 0;
+		for (i = 0; i < (new_size - 1); i++)
 		{
-			if (array[j] > array[j + 1])
-			{
-				check = 1;
-				temp = array[j];
-				array[j] = array[j + 1];
-				array[j + 1] = temp;
-				print_array(array, size);
-			}
+			if (swap(array, i, size))
+				flag = 1;
 		}
-		if (!check)
-			break;
+		new_size -= 1;
 	}
+}
+
+/**
+ * swap - checks for unordered pairs and swaps to correct position
+ * @array: a pointer to the first element of the array
+ * @i: the position in the array being checked
+ * @size: the size of the array
+ * Return: Integer 1 if swap and 0 if not
+ */
+int swap(int *array, int i, size_t size)
+{
+	int tmp;
+
+	if (array[i] > array[i + 1])
+	{
+		tmp = array[i];
+		array[i] = array[i + 1];
+		array[i + 1] = tmp;
+		print_array(array, size);
+		return (1);
+	}
+	return (0);
 }
