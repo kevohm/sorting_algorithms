@@ -1,4 +1,4 @@
-#include "main.h"
+#include "sort.h"
 /**
  * bubble_sort - sorting algorithm
  * @array: pointer to array
@@ -7,7 +7,8 @@
  */
 void bubble_sort(int *array, size_t size)
 {
-	int i = 0, j = 0, temp = 0;
+	size_t i = 0, j = 0;
+	int temp = 0;
 
 	for (;i < size; i++)
 	{
